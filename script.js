@@ -226,7 +226,7 @@ friend(allelement);
 // bot(allelement);
 let exit = document.querySelector(".exit");
 exit.addEventListener("click", () => {
-  window.location.href= 'https://sanketgadhe.github.io/Memory-Game/'
+  // window.location.href= https://sanketgadhe.github.io/
 });
 function bot(allelement) {
   chance = "player1";
