@@ -246,18 +246,18 @@
     transition: transform 2s, display 1s;
   }
   .player2win {
-    transform: translate(0, 48vw);
+    transform: translate(0, 40vh);
   }
   .player1win {
-    margin-left: 0vw;
-    transform: translate(0, -48vw);
+    transform: translate(0, -40vh);
     rotate: 0deg;
   }
   .player1win,
   .player2win {
+    position: absolute;
     justify-content: center;
-    width: 90vw;
-    height: 90vw;
+    width: 70vw;
+    height: 70vw;
     border-radius: 90vw;
     font-size: 8vh;
     transition: transform 0.6s, width 0.6s, height 0.6s, margin-left 0.6s,
