@@ -141,58 +141,66 @@ function friend(allelement) {
   turn.classList.add("play1display");
   allelement.forEach((element) => {
     element.addEventListener("click", () => {
-      let img = document.createElement("img");
-      img.src = "img//" + desiredelement[element.id] + ".png";
-      element.appendChild(img);
-      element.disabled = true;
-      // Card ko turn karne k liye
-      transitionkar(element, 0, 0);
-      times += 1;
-      card.push(element);
-      element.addEventListener("transitionend", () => {
-        if (times % 2 == 0 && card.length == 2 && boxes > 0) {
-          let correct;
-          card[0].disabled = false;
-          card[1].disabled = false;
-          switch (chance) {
-            case "player1":
-              correct = checkcorrectpair(card, player1);
-              if (correct) {
-                result = checkkarend();
-                if (result) {
+      if(times<2)
+      {
+        let img = document.createElement("img");
+        img.src = "img//" + desiredelement[element.id] + ".png";
+        element.appendChild(img);
+        element.disabled = true;
+        // Card ko turn karne k liye
+        transitionkar(element, 0, 0);
+        times += 1;
+        card.push(element);
+        // element.addEventListener("transitionend", () => {
+          if (times === 2 && card.length == 2 && boxes > 0) {
+            setTimeout(()=>
+            {
+              let correct;
+            card[0].disabled = false;
+            card[1].disabled = false;
+            switch (chance) {
+              case "player1":
+                correct = checkcorrectpair(card, player1);
+                if (correct) {
+                  result = checkkarend();
+                  if (result) {
+                    break;
+                  }
                   break;
+                } else {
+                  noresult(card);
                 }
+                turn.classList.remove("play1display");
+                chance = "player2";
+                turn = document.querySelector(".play2");
+                turn.classList.add("play2display");
                 break;
-              } else {
-                noresult(card);
-              }
-
-              turn.classList.remove("play1display");
-              chance = "player2";
-              turn = document.querySelector(".play2");
-              turn.classList.add("play2display");
-              break;
-            case "player2":
-              correct = checkcorrectpair(card, player2);
-              if (correct) {
-                result = checkkarend();
-                if (result) {
+              case "player2":
+                correct = checkcorrectpair(card, player2);
+                if (correct) {
+                  result = checkkarend();
+                  if (result) {
+                    break;
+                  }
                   break;
+                } else {
+                  noresult(card);
                 }
+                turn.classList.remove("play2display");
+                chance = "player1";
+                turn = document.querySelector(".play1");
+                turn.classList.add("play1display");
                 break;
-              } else {
-                noresult(card);
-              }
-              turn.classList.remove("play2display");
-              chance = "player1";
-              turn = document.querySelector(".play1");
-              turn.classList.add("play1display");
-              break;
+            }
+            card.pop();
+            card.pop();
+            times=0;
+          },1000);
+            
           }
-          card.pop();
-          card.pop();
-        }
-      });
+      }
+      
+      // });
     });
   });
 }
@@ -223,10 +231,10 @@ var times = 0;
 var result;
 var allelement = document.querySelectorAll(".buttons");
 friend(allelement);
-bot(allelement);
+// bot(allelement);
 let exit = document.querySelector(".exit");
 exit.addEventListener("click", () => {
-  window.location.href= 'https://sanketgadhe.github.io/Memory-Game/'
+  window.location.href= window.location.origin+'/index.html'
 });
 function bot(allelement) {
   chance = "player1";
