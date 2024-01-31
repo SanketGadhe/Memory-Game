@@ -1,0 +1,266 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;  
+}
+.hide {
+  display: none;
+  background-color: #f8bb30;
+}
+.start {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+.turns:nth-child(1),.turns:nth-child(3){
+  background-color: #385c5d;
+  width: 8vw;
+  color: #7dcfc5;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: baseline;
+  transition: font-size 1s, color 2s;
+}
+.turns:nth-child(1){
+  border-right: 10px solid black;
+}
+.turns:nth-child(3) {
+  justify-content: end;
+  border-left: 10px solid black;
+}
+.game {
+  width: 84vw;
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #263238;
+}
+.score,.exit{
+  width: 12vw;
+  height: 6vw;
+  background-color: #ffffff;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.score {
+  border-radius: 0 0 6vw 6vw;
+  font-size: 3vw;
+  color: #069de6;
+}
+.exit {
+  font-size: 2.5vw;
+  border-radius: 6vw 6vw 0 0;
+  color: #144bd4;
+  font-weight: bold;
+  cursor: pointer;
+}
+#player1 {
+  color: #069de6;
+}
+#player2 {
+  color: #e63306;
+}
+.allbuttons {
+  width: 100%;
+  height: 100%;
+}
+.allbutton {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: calc(84vw);
+  height: calc(70vh);
+}
+.buttons {
+  width: 6.5vw;
+  height: 6.5vw;
+  background-color: #f8b83a;
+  rotate: 6deg;
+  position: relative;
+  margin: 1.5vw;
+  border: 0.4vw solid #ffffff;
+  border-radius: 10px;
+  transform: rotateZ(180deg) rotateY(180deg);
+}
+.buttons img {
+  height: 100%;
+  width: 100%;
+}
+
+.play1,
+.play2 {
+  width: 18vw;
+  height: 9vw;
+  border-radius: 0 0 9vw 9vw;
+  rotate: -90deg;
+  font-size: 3vw;
+  border: 0.7vw solid #ffff;
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+}
+.play1 {
+  rotate: -90deg;
+  margin-left: -13.5vw;
+  background-color: #7582f6;
+}
+.play2 {
+  rotate: 90deg;
+  margin-right: -13.5vw;
+  background-color: #dc7e7e;
+}
+.play1display,
+.play2display {
+  transform: translateY(8.5vw);
+  transition: transform 0.6s;
+}
+/* Player1 win jita tab */
+.player1win,
+.player2win {
+  rotate: 0deg;
+  transition: transform 1s;
+  justify-content: center;
+  width: 60vw;
+  height: 15vw;
+  border-radius: 20vh;
+  font-size: 18vh;
+  transition: transform 0.6s, width 0.6s, height 0.6s, border-radius 0.6s,
+    font-size 0.6s;
+}
+
+.player1win {
+  transform: translateX(34vw);
+}
+.player2win {
+  transform: translateX(-34vw);
+}
+/* player2 n k card sahi hue toh uske cards p */
+.kaamkhtm {
+  transform: translate(100vw);
+  transition: transform 2s;
+}
+/* player2 n k card sahi hue toh uske cards p */
+.player1kaamkhtm {
+  transform: translate(-100vw);
+  transition: transform 2s;
+}
+/* Mobile */
+@media (max-width: 600px) {
+  .start {
+    height: 92.5vh;
+  }
+  .turns:nth-child(1) {
+    width: 15vw;
+    height: 92.5vh;
+  }
+  .game {
+    width: 70vw;
+    height: 92.5vh;
+  }
+  .score {
+    width: 14vh;
+    height: 7vh;
+    border-radius: 0 0 7vh 7vh;
+    font-size: 5vh;
+    margin-bottom: 1vh;
+    rotate: -90deg;
+    position: absolute;
+    margin-left: -9vw;
+  }
+  .allbutton {
+    height: 79vh;
+    width: 70vw;
+  }
+  .buttons {
+    width: 7.5vh;
+    border: 1vw solid #ffff;
+    height: 7.5vh;
+    rotate: 6deg;
+  }
+  .buttons img {
+    width: 100%;
+    height: 100%;
+  }
+  .exit {
+    width: 14vh;
+    height: 7vh;
+    border-radius: 7vh 7vh 0 0;
+    font-size: 3vh;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
+    rotate: -90deg;
+    margin-right: -9vw;
+    position: absolute;
+  }
+  .turns:nth-child(3) {
+    width: 15vw;
+    height: 92.5vh;
+  }
+  .play1 {
+    width: 20vh;
+    height: 10vh;
+    border-radius: 0 0 10vh 10vh;
+    margin-left: 2vw;
+    rotate: 180deg;
+    bottom: -20vw;
+    position: relative;
+  }
+  .play2 {
+    width: 20vh;
+    height: 10vh;
+    border-radius: 0 0 10vh 10vh;
+    margin-right: 2vw;
+    top: -20vw;
+    rotate: 0deg;
+    position: relative;
+  }
+  .play1,
+  .play2 {
+    border: 1vw solid #ffff;
+    font-size: 6vw;
+    font-weight: bolder;
+  }
+  .play1display,
+  .play2display {
+    transform: translateY(20vw);
+    transition: transform 0.6s;
+  }
+  .kaamkhtm {
+    transform: translate(0, -100vh);
+    transition: transform 2s;
+  }
+  /* player2 n k card sahi hue toh uske cards p */
+  .player1kaamkhtm {
+    transform: translate(0, 100vh);
+    transition: transform 2s, display 1s;
+  }
+  .player2win {
+    transform: translate(0, 48vw);
+  }
+  .player1win {
+    margin-left: 0vw;
+    transform: translate(0, -48vw);
+    rotate: 0deg;
+  }
+  .player1win,
+  .player2win {
+    justify-content: center;
+    width: 90vw;
+    height: 90vw;
+    border-radius: 90vw;
+    font-size: 8vh;
+    transition: transform 0.6s, width 0.6s, height 0.6s, margin-left 0.6s,
+      margin-right 0.6s, border-radius 0.6s, font-size 0.6s;
+  }
+}
