@@ -223,11 +223,11 @@ var times = 0;
 var result;
 var allelement = document.querySelectorAll(".buttons");
 friend(allelement);
-// bot(allelement);
-// let exit = document.querySelector(".exit");
-// exit.addEventListener("click", () => {
-//   // window.location.href= https://sanketgadhe.github.io/
-// });
+bot(allelement);
+let exit = document.querySelector(".exit");
+exit.addEventListener("click", () => {
+  window.location.href= 'https://sanketgadhe.github.io/Memory-Game/'
+});
 function bot(allelement) {
   chance = "player1";
   player1kobula(allelement);
